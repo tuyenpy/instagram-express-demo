@@ -1,6 +1,13 @@
 const Post = require('../../model/post.model');
 const User = require('../../model/user.model');
 
+//get all post
+module.exports.index = async (req, res) => {
+    let posts = await Post.find();
+    res.json(posts);
+}   
+
+//create post
 module.exports.create = async (req, res) => {
     //Retrive userID, image, body from req.body
     let { userID, body } = req.body;
@@ -9,6 +16,7 @@ module.exports.create = async (req, res) => {
     res.json(post);
 }
 
+//like post
 module.exports.like = async (req, res) => {
     //Retrive postID vs userID from req.body
     let { postID, userID } = req.body;
@@ -39,6 +47,7 @@ module.exports.like = async (req, res) => {
     res.json(user);
 }
 
+//comment post
 module.exports.comment = async (req, res) => {
     // Retrive postID, userID , cmt(comment) from req.body
     let { postID, userID, cmt } = req.body;

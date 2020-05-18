@@ -11,4 +11,7 @@ router.post('/like', controller.like);
 //comment post
 router.post('/comment', controller.comment);
 
+//get all post
+router.get('/index', controller.index);
+
 module.exports = router;
