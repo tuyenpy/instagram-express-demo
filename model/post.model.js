@@ -4,10 +4,10 @@ const postSchema = new Schema({
         type: String,
         required: true
     },
-    image: { // link image
-        type: String,
-        required: true
-    },
+//     image: { // link image
+//         type: String,
+//         required: true
+//     },
     body: { //post content
         type: String,
         required: true
