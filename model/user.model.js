@@ -22,11 +22,7 @@ const userSchema = new Schema({
         required: true
     },
     notification: [{
-        postID: { // the post ID has been interactive
-            type: String,
-            required: false
-        },
-        userID: {  // user ID interacted
+        body: {
             type: String,
             required: false
         },

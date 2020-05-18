@@ -18,6 +18,9 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 //folder public
 app.use(express.static('public'));
 
+app.get('/', (req, res) => {
+    res.send("hi");
+})
 //route api
 app.use('/api/user', require('./api/route/user.route'));
 app.use('/api/post', require('./api/route/post.route'));
