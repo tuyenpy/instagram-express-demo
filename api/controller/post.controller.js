@@ -19,9 +19,9 @@ module.exports.like = async (req, res) => {
     // Retrive notification from User
     let { notification } = await User.findById(userID);
     //Create notification array
-    notification.push(`${userID} liked ${postID}`);
+    notification.push({ body:`${userID} liked ${postID}` });
     // find userID vs update notification
-    let notification = await User.findOneAndUpdate({
+    let user = await User.findOneAndUpdate({
         _id: userID
     }, {
         notification: notification
@@ -36,7 +36,7 @@ module.exports.like = async (req, res) => {
     }, {
         new: true
     })
-    res.json(post);
+    res.json(user);
 }
 
 module.exports.comment = async (req, res) => {
