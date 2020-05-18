@@ -3,25 +3,28 @@ const postSchema = new Schema({
     userID: { //Who owns this article?
         type: String,
         required: true
-    }
+    },
+    image: { // link image
+        type: String,
+        required: true
+    },
     body: { //post content
         type: String,
         required: true
     },
-    like: [
-        userID: { // user ID has liked the post
-            type: String,
-            required: true
-        }
-    ],
+    like: [], // user ID has liked the post
     comment: [{ // user ID has commented the post
-        text: {
+        cmt: {
             type: String,
-            required: true
+            required: false
         },
         userID: {
             type: String,
-            required: true
+            required: false
+        },
+        date: {
+            type: Date,
+            default: Date.now
         }
     }],
     date: {  // Date

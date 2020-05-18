@@ -15,7 +15,11 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 app.use(express.static('public'));
 
 //route api
-app.use('/api/user', require('./api/route/use.route'));
+app.use('/api/user', require('./api/route/user.route'));
+app.use('/api/post', require('./api/route/post.route'));
+
+//DeprecationWarning: Mongoose: `findOneAndUpdate()` and `findOneAndDelete()` without the `useFindAndModify` option set to false are deprecated. See: https://mongoosejs.com/docs/deprecations.html#findandmodify
+mongoose.set('useFindAndModify', false);
 
 //connect to Cluster MongoDB Atlas
 mongoose.connect(process.env.MONGO_URL, {
