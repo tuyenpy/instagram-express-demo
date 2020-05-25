@@ -44,7 +44,7 @@ module.exports.like = async (req, res) => {
     }, {
         new: true
     })
-    res.json(user);
+    res.json(post);
 }
 
 //comment post
