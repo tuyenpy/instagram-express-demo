@@ -37,14 +37,15 @@ module.exports.like = async (req, res) => {
         new: true
     })
     // find postID vs update like
-    let post = await Post.findOneAndUpdate({
+    await Post.findOneAndUpdate({
         _id: postID
     }, {
         like: like
     }, {
         new: true
     })
-    res.json(post);
+    let posts = await Post.find();
+    res.json(posts);
 }
 
 //comment post
@@ -56,12 +57,13 @@ module.exports.comment = async (req, res) => {
     //Create comment array
     comment.push({cmt, userID });
     // find postID vs update comment
-    let post = await Post.findOneAndUpdate({
+    await Post.findOneAndUpdate({
         _id: postID
     }, {
         comment: comment
     }, {
         new: true
     })
-    res.json(post);
+    let posts = await Post.find();
+    res.json(posts);
 }
