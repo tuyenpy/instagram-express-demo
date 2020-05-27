@@ -13,7 +13,7 @@ const postSchema = new Schema({
     desciption: {
         type: String,
         required: true,
-    }
+    },
     likes: [], // user ID has liked the post
     comments: [{ // user ID has commented the post
         text: {
