@@ -6,6 +6,14 @@ const postSchema = new Schema({
         avatar: String,
         name: String,
     },
+    title: {
+        type: String,
+        required: true,
+    },
+    desciption: {
+        type: String,
+        required: true,
+    }
     likes: [], // user ID has liked the post
     comments: [{ // user ID has commented the post
         text: {
