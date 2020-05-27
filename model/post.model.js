@@ -1,20 +1,14 @@
 const { Schema, model } = require('mongoose');
 const postSchema = new Schema({
-    userID: { //Who owns this article?
-        type: String,
-        required: true
+    images: [],
+    user: {
+        _id: String,
+        avatar: String,
+        name: String,
     },
-//     image: { // link image
-//         type: String,
-//         required: true
-//     },
-    body: { //post content
-        type: String,
-        required: true
-    },
-    like: [], // user ID has liked the post
-    comment: [{ // user ID has commented the post
-        cmt: {
+    likes: [], // user ID has liked the post
+    comments: [{ // user ID has commented the post
+        text: {
             type: String,
             required: false
         },

@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose');
 const userSchema = new Schema({
     avatar: {
         type: String,
-        required: false
+        required: true
     },
     name: {
         type: String,
@@ -21,10 +21,13 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    followers: [],
+    following: [],
+    saved: [],
     notification: [{
         body: {
             type: String,
-            required: false
+            required: true
         },
         status: {         // read or not read
             type: Boolean,
@@ -34,7 +37,11 @@ const userSchema = new Schema({
             type: Date,
             default: Date.now
         }
-    }]
+    }],
+    date: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 const User = model('User', userSchema);
