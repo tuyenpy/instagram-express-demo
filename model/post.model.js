@@ -2,9 +2,19 @@ const { Schema, model } = require('mongoose');
 const postSchema = new Schema({
     images: [],
     user: {
-        _id: String,
-        avatar: String,
-        name: String,
+        id: {
+            type: String,
+            required: true,
+        },
+        avatar: {
+            type: String,
+            required: true,
+        },
+        name: {
+            type: String,
+            required: true,
+        }
+
     },
     title: {
         type: String,
@@ -16,7 +26,7 @@ const postSchema = new Schema({
     },
     likes: [], // user ID has liked the post
     comments: [{ // user ID has commented the post
-        text: {
+        cmt: {
             type: String,
             required: false
         },
