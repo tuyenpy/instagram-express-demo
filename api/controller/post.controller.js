@@ -10,9 +10,10 @@ module.exports.index = async (req, res) => {
 //create post
 module.exports.create = async (req, res) => {
     //Retrive userID, image, body from req.body
-    let { userID, body } = req.body;
+    console.log(req.body);
+    let { images, description, title } = req.body;
     // create new Post
-    let post = await new Post({ userID, body }).save();
+    let post = await new Post({ images, description, title }).save();
     res.json(post);
 }
 
