@@ -3,6 +3,8 @@ const router = express.Router();
 const controller = require('../controller/user.controller');
 const validate = require('../validate/user.validate');
 
+//get user
+router.get('/', controller.getUser);
 //create user
 router.post('/signup', validate.create, controller.signUp);
 

@@ -1,7 +1,12 @@
 const User = require('../../model/user.model');
 const { hash, comparePassword } = require('../../config/bcrypt');
 
-
+//get user
+module.exports.getUser = async (req, res) => {
+    let id = req.query.id;
+    let user = await User.findById(id);
+    res.json({user});
+}
 //create user
 module.exports.signUp = async (req, res) => {
     let { name, phone, email, avatar } = req.body;
