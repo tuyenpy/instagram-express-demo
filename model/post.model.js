@@ -28,11 +28,15 @@ const postSchema = new Schema({
     comments: [{ // user ID has commented the post
         cmt: {
             type: String,
-            required: false
+            required: true
         },
         userID: {
             type: String,
-            required: false
+            required: true
+        },
+        userName: {
+            type: String,
+            required: true,
         },
         date: {
             type: Date,
