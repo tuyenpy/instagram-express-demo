@@ -31,9 +31,9 @@ module.exports.like = async (req, res) => {
     //Retrive postID vs userID from req.body
     let { postID, userID } = req.body;
     // Retrive like from Post
-    let { like } = await Post.findById(postID);
+    let { likes } = await Post.findById(postID);
     // Create like array
-    like.push(userID);
+    likes.push(userID);
     // Retrive notification from User
     let { notification } = await User.findById(userID);
     //Create notification array
@@ -50,7 +50,7 @@ module.exports.like = async (req, res) => {
     await Post.findOneAndUpdate({
         _id: postID
     }, {
-        like: like
+        likes: likes
     }, {
         new: true
     })
@@ -63,14 +63,14 @@ module.exports.comment = async (req, res) => {
     // Retrive postID, userID , cmt(comment) from req.body
     let { postID, userID, cmt } = req.body;
     // Retrive comment from Post
-    let { comment } = await Post.findById(postID);
+    let { comments } = await Post.findById(postID);
     //Create comment array
-    comment.push({cmt, userID });
+    comments.push({cmt, userID });
     // find postID vs update comment
     await Post.findOneAndUpdate({
         _id: postID
     }, {
-        comment: comment
+        comments: comments
     }, {
         new: true
     })
