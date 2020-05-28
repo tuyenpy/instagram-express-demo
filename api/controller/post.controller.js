@@ -61,11 +61,11 @@ module.exports.like = async (req, res) => {
 //comment post
 module.exports.comment = async (req, res) => {
     // Retrive postID, userID , cmt(comment) from req.body
-    let { postID, userID, cmt } = req.body;
+    let { postID, userID, cmt, userName } = req.body;
     // Retrive comment from Post
     let { comments } = await Post.findById(postID);
     //Create comment array
-    comments.push({cmt, userID });
+    comments.push({cmt, userID, userName });
     // find postID vs update comment
     await Post.findOneAndUpdate({
         _id: postID
