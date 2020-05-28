@@ -18,7 +18,7 @@ module.exports.create = async (req, res, next) => {
 
     //validate email exist
     let checkUser = await User.findOne({ email: email });
-    if (checkUser._id) {
+    if (checkUser) {
         errors.push("Email exist. Please choose a new email")
     }
 
