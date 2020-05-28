@@ -4,7 +4,7 @@ const User = require('../../model/user.model');
 //get all post
 module.exports.index = async (req, res) => {
     let posts = await Post.find();
-    res.json(posts);
+    res.json({posts});
 }   
 
 //create post
@@ -20,8 +20,10 @@ module.exports.create = async (req, res) => {
         avatar: result.avatar
     }
     // create new Post
-    let post = await new Post({ images, description, title, user }).save();
-    res.json(post);
+    await new Post({ images, description, title, user }).save();
+    // get all post
+    let posts = await Post.find();
+    res.json({posts});
 }
 
 //like post
@@ -53,7 +55,7 @@ module.exports.like = async (req, res) => {
         new: true
     })
     let posts = await Post.find();
-    res.json(posts);
+    res.json({posts});
 }
 
 //comment post
@@ -73,5 +75,5 @@ module.exports.comment = async (req, res) => {
         new: true
     })
     let posts = await Post.find();
-    res.json(posts);
+    res.json({posts});
 }
